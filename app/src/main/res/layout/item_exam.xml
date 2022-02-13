@@ -4,31 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginEnd="24dp"
     android:background="@drawable/bg_dashboard_card"
     android:padding="@dimen/dashboard_card_padding">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/ie_text_exam"
+        style="@style/TextStyle.exam_card_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Object Oriented Programming in Java" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/ie_button_take_exam"
+        style="@style/TextStyle.exam_card_button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Take"
+        android:text="@string/take"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/ie_text_duration"
+        style="@style/TextStyle.exam_card_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/ie_text_mark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ie_text_exam"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="3pm - 6pm" />
+
+    <TextView
+        android:id="@+id/ie_text_1"
+        style="@style/TextStyle.exam_card_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ie_text_duration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ie_text_duration"
+        tools:text="MCQs" />
+
+    <TextView
+        android:id="@+id/ie_text_mark"
+        style="@style/TextStyle.exam_card_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="20 marks" />
+
+    <TextView
+        android:id="@+id/ie_text_2"
+        style="@style/TextStyle.exam_card_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorPrimaryVariant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ie_text_mark"
+        tools:text="Internal Ones" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

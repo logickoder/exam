@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/action_dashboard">
 
 
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/action_dashboard"
         android:name="dev.logickoder.edvora.ui.main.dashboard.DashboardFragment"
         android:label="DashboardFragment"
-        tools:layout="@layout/fragment_dashboard"/>
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/examsFragment"
+        android:id="@+id/action_exams"
         android:name="dev.logickoder.edvora.ui.main.exams.ExamsFragment"
         android:label="ExamsFragment"
         tools:layout="@layout/fragment_exams">

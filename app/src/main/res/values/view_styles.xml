@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ImageView -->
+    <style name="ImageView" />
+
+    <style name="ImageView.Rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="TextStyle.exam_card_button" parent="Widget.Material3.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:paddingLeft">9dp</item>
+        <item name="android:paddingRight">9dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:backgroundTint">@color/dashboard_card_button</item>
+    </style>
+</resources>

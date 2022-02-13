@@ -7,5 +7,5 @@ import androidx.viewbinding.ViewBinding
  * The base class for fragments
  */
 abstract class BaseFragment(layoutId: Int) : Fragment(layoutId) {
-    abstract val binding: ViewBinding
+    protected abstract val binding: ViewBinding
 }

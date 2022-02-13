@@ -1,33 +1,23 @@
 package dev.logickoder.edvora.ui.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import dev.logickoder.edvora.R
 import dev.logickoder.edvora.databinding.ActivityMainBinding
+import dev.logickoder.edvora.ui.base.BaseActivity
+import dev.logickoder.edvora.utils.view.viewBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    override val binding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        binding.appBottomNavigation.setupWithNavController(
+            findNavController(R.id.nav_host_fragment)
+        )
     }
 }

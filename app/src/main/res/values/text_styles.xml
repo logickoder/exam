@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextStyle" parent="Widget.MaterialComponents.TextView" />
+
+    <style name="TextStyle.h1">
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">34sp</item>
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="TextStyle.h3">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">17sp</item>
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="TextStyle.exam_card_title">
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="TextStyle.exam_card_detail">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">17sp</item>
+        <item name="android:textColor">@color/dashboard_card_text</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+
+</resources>

@@ -8,4 +8,16 @@
     <string name="exams">Exams</string>
     <string name="page_5">Page 5</string>
 
+    <!-- Dashboard -->
+    <string name="hello_name">Hello %1$s</string>
+    <string name="welcome_to_your_dashboard">Welcome to your <b>Dashboard</b></string>
+    <string name="total_classes">Total Classes</string>
+    <string name="classes_missed">Classes Missed</string>
+    <string name="classes_attended">Classes Attended</string>
+    <string name="classes_left">Classes Left</string>
+    <string name="low_attendance">Your attendance seems to be low in %1$s</string>
+    <string name="examination">Examination</string>
+    <string name="attendance">Attendance</string>
+    <string name="marks">%1$d marks</string>
+    <string name="take">Take</string>
 </resources>

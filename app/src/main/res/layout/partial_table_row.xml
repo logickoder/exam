@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/ptr_text_header"
+        style="@style/TextStyle.h3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:textColor="@color/dashboard_card_text"
+        android:textSize="12sp"
+        app:lineHeight="15sp"
+        tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/ptr_text_content"
+        style="@style/TextStyle.h3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dashboard_card_text_shadow"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:lineHeight="13sp"
+        tools:text="TextView" />
+</TableRow>
