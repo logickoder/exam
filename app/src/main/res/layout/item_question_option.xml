@@ -47,8 +47,9 @@
             android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
             android:hint="@string/option_field_hint"
+            android:imeOptions="actionNext"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:singleLine="true" />
     </LinearLayout>
 
