@@ -17,6 +17,13 @@
         <item name="android:fontFamily">@font/inter_regular</item>
     </style>
 
+    <style name="TextStyle.dashboard_section_header">
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">22sp</item>
+        <item name="android:textColor">@color/dashboard_section_header</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
     <style name="TextStyle.exam_card_title">
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">24sp</item>
@@ -36,6 +43,38 @@
         <item name="lineHeight">19sp</item>
         <item name="android:textColor">@color/toolbar_title</item>
         <item name="android:fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="TextStyle.exam_info_label">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">19sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="TextStyle.new_exam_section_title">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">17sp</item>
+        <item name="android:textColor">@color/create_new_exam_section_title</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="TextStyle.new_exam_section_option_letter">
+        <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="TextStyle.new_exam_section_option_text">
+        <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="android:fontFamily">@font/inter_light</item>
+    </style>
+
+    <style name="TextStyle.question_box_text">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">19sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
     </style>
 
 </resources>

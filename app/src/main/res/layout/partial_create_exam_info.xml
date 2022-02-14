@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/pcei_text_classroom"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/classroom_title" />
@@ -31,14 +31,13 @@
 
     <TextView
         android:id="@+id/pcei_text_syllabus"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/syllabus_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_syllabus"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/pcei_textinput_classroom"
@@ -55,14 +54,13 @@
 
     <TextView
         android:id="@+id/pcei_text_date"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_date"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:endIconDrawable="@drawable/ic_calendar"
@@ -81,14 +79,13 @@
 
     <TextView
         android:id="@+id/pcei_text_time"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/time_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_time"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:endIconDrawable="@drawable/ic_time"
@@ -107,7 +104,7 @@
 
     <TextView
         android:id="@+id/pcei_text_duration"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/duration_title"
@@ -115,7 +112,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_duration"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/pcei_textinput_time"
@@ -132,14 +128,13 @@
 
     <TextView
         android:id="@+id/pcei_text_timeframe"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/timeframe_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_timeframe"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/pcei_textinput_duration"
@@ -156,14 +151,13 @@
 
     <TextView
         android:id="@+id/pcei_text_totalmarks"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_marks_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_totalmarks"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/pcei_textinput_timeframe"
@@ -178,14 +172,13 @@
 
     <TextView
         android:id="@+id/pcei_text_category"
-        style="@style/TextStyle.h3"
+        style="@style/TextStyle.exam_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/category_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pcei_textinput_category"
-        style="@style/TextInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/pcei_textinput_totalmarks"
