@@ -9,15 +9,19 @@
         android:id="@+id/action_dashboard"
         android:name="dev.logickoder.edvora.ui.main.dashboard.DashboardFragment"
         android:label="DashboardFragment"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_action_dashboard_to_createExamFragment"
+            app:destination="@id/createExamFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/action_exams"
         android:name="dev.logickoder.edvora.ui.main.exams.ExamsFragment"
         android:label="ExamsFragment"
-        tools:layout="@layout/fragment_exams">
+        tools:layout="@layout/partial_dashboard_card">
         <action
-            android:id="@+id/action_examsFragment_to_createExamFragment"
+            android:id="@+id/action_action_exams_to_createExamFragment"
             app:destination="@id/createExamFragment" />
     </fragment>
 

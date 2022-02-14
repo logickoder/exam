@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
 import dev.logickoder.edvora.R
@@ -32,7 +33,9 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
             pdcTitle.text = context.getString(R.string.examination)
             pdcList.layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
             pdcAdd.isVisible = true
-            pdcAdd.setOnClickListener { }
+            pdcAdd.setOnClickListener {
+                findNavController().navigate(R.id.action_action_dashboard_to_createExamFragment)
+            }
         }
         fdAttendance.apply {
             pdcTitle.text = context.getString(R.string.attendance)
