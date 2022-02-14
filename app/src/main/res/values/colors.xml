@@ -21,4 +21,8 @@
     <!-- Create New Exam -->
     <color name="create_new_exam_section_title">#676767</color>
     <color name="create_new_exam_hint">#A4A4A4</color>
+    <color name="create_new_exam_edit">#004A76</color>
+    <color name="create_new_exam_remove">#F72626</color>
+    <color name="create_new_exam_option_checked">#F2D8D5</color>
+    <color name="create_new_exam_option_unchecked">#593636</color>
 </resources>

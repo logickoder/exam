@@ -35,7 +35,7 @@
             android:paddingTop="6dp"
             android:paddingEnd="10dp"
             android:paddingBottom="6dp"
-            android:textColor="@color/option_letter"
+            android:textColor="@color/create_new_exam_option_unchecked"
             tools:text="A" />
 
         <EditText
@@ -58,6 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:visibility="invisible"
         app:srcCompat="@drawable/ic_cancel"
-        app:tint="@color/primary_color_light" />
+        app:tint="@color/primary_color_light"
+        tools:visibility="visible" />
 </LinearLayout>

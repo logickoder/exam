@@ -2,13 +2,18 @@ package dev.logickoder.edvora.ui.main.exams
 
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isInvisible
+import androidx.core.widget.addTextChangedListener
 import dev.logickoder.edvora.R
-import dev.logickoder.edvora.data.Question
 import dev.logickoder.edvora.databinding.ItemQuestionBinding
 import dev.logickoder.edvora.databinding.ItemQuestionOptionBinding
 import dev.logickoder.edvora.ui.base.BaseItem
 import dev.logickoder.edvora.ui.base.BaseListAdapter
 import dev.logickoder.edvora.utils.view.layoutInflater
+import java.time.Instant
+
+private val checkedState = listOf(android.R.attr.state_checked).toIntArray()
+private val uncheckedState = emptyList<Int>().toIntArray()
 
 interface OptionsContainer {
     fun addOption()
@@ -16,15 +21,10 @@ interface OptionsContainer {
 }
 
 class QuestionItem(
-) : BaseItem<Unit, ItemQuestionBinding>(
-    Unit,
-    R.layout.item_question,
-    R.layout.item_question
-), OptionsContainer {
+    val id: Long = Instant.now().epochSecond
+) : BaseItem<Long, ItemQuestionBinding>(id, R.layout.item_question, id), OptionsContainer {
     private val options by lazy { BaseListAdapter() }
-
-    private lateinit var _question: Question
-    val question: Question get() = _question
+    private var binding: ItemQuestionBinding? = null
 
     override fun inflate(parent: ViewGroup) = ItemQuestionBinding.inflate(
         parent.layoutInflater(), parent, false
@@ -44,7 +44,17 @@ class QuestionItem(
 
     override fun updateChecked(option: OptionItem) {
         (options.currentList - option).forEach { (it as OptionItem).updateCheck(false) }
-        options.notifyDataSetChanged()
+    }
+
+    fun changeEditable(boolean: Boolean) = binding?.apply {
+        iqTextRemove.apply {
+            text = context.getText(if (boolean) R.string.discard else R.string.remove)
+            setTextColor(resources.getColor(if (boolean) R.color.primary_color else R.color.create_new_exam_remove))
+        }
+        iqTextSave.apply {
+            text = context.getText(if (boolean) R.string.save else R.string.edit)
+            setTextColor(resources.getColor(if (boolean) R.color.dashboard_card else R.color.create_new_exam_edit))
+        }
     }
 
     companion object {
@@ -68,20 +78,30 @@ class OptionItem(
             it.text = letter
         }
         iqoTextinputOption.also {
-            it.setOnEditorActionListener { v, actionId, event ->
+            it.setOnEditorActionListener { _, actionId, _ ->
                 return@setOnEditorActionListener if (actionId == EditorInfo.IME_ACTION_NEXT) {
                     container.addOption()
                     true
                 } else false
             }
+            it.addTextChangedListener { iqoImageRemoveOption.isInvisible = it.isNullOrBlank() }
         }
-        iqoImageRemoveOption.setOnClickListener { container.removeOption(this@OptionItem) }
         iqoSelected.setOnClickListener {
-            if (iqoSelected.isChecked) container.updateChecked(this@OptionItem)
+            if (iqoSelected.isChecked) {
+                container.updateChecked(this@OptionItem)
+                iqoOption.background.state = checkedState
+                iqoTextOptionLetter.background.state = checkedState
+                iqoTextOptionLetter.setTextColor(it.resources.getColor(R.color.create_new_exam_option_checked))
+            }
         }
     }
 
     fun updateCheck(checked: Boolean) = binding?.also {
-        it.iqoSelected.checked = checked
+        it.iqoSelected.isChecked = checked
+        if (!checked) {
+            it.iqoOption.background.state = uncheckedState
+            it.iqoTextOptionLetter.background.state = uncheckedState
+            it.iqoTextOptionLetter.setTextColor(it.root.resources.getColor(R.color.create_new_exam_option_unchecked))
+        }
     }
 }
