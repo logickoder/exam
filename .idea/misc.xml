@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/drawable/bg_dashboard_card.xml" value="0.182" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/drawable/ic_arrow_down.xml" value="0.182" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_create_exam.xml" value="0.25" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_dashboard.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/item_attendance.xml" value="0.22083333333333333" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/item_create_exam_info.xml" value="0.33" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/item_dashboard.xml" value="1.1142857142857143" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/item_exam.xml" value="0.25" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_create_exam_info.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_dashboard_card.xml" value="0.33" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_dashboard_header.xml" value="0.5" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_table_row.xml" value="0.22083333333333333" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_toolbar.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_user_welcome.xml" value="0.33" />
         <entry key="..\:/Users/chukw/AndroidStudioProjects/Edvora/app/src/main/res/drawable/bg_dashboard_card.xml" value="0.1805" />
         <entry key="..\:/Users/chukw/AndroidStudioProjects/Edvora/app/src/main/res/font/inter.xml" value="0.20572916666666666" />
@@ -29,12 +34,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.1" />
-      </ProjectState>
-    </option>
   </component>
 </project>

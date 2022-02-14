@@ -20,4 +20,30 @@
         <item name="android:paddingBottom">6dp</item>
         <item name="android:backgroundTint">@color/dashboard_card_button</item>
     </style>
+
+    <style name="TextStyle.toolbar_button" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">19sp</item>
+        <item name="cornerRadius">5dp</item>
+        <item name="android:textColor">@color/primary_color_light</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:paddingLeft">9dp</item>
+        <item name="android:paddingRight">9dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="strokeColor">@color/primary_color_light</item>
+    </style>
+
+    <style name="TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/primary_color_light</item>
+    </style>
+
+    <style name="EditText" parent="TextStyle.h3">
+        <item name="android:background">@drawable/bg_dashboard_card</item>
+        <item name="android:drawableTint">@color/primary_color_light</item>
+    </style>
+
+    <style name="TextInput.Dropdown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:textColorHint">@color/primary_color_light</item>
+    </style>
 </resources>

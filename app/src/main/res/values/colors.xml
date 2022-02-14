@@ -13,4 +13,7 @@
     <color name="dashboard_card_text_shadow">#1D1D1D</color>
     <color name="dashboard_card_text_highlight">#733D47</color>
     <color name="dashboard_card_button">#1AAE02</color>
+
+    <!-- Toolbar -->
+    <color name="toolbar_title">#606060</color>
 </resources>

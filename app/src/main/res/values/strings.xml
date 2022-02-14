@@ -20,4 +20,23 @@
     <string name="attendance">Attendance</string>
     <string name="marks">%1$d marks</string>
     <string name="take">Take</string>
+
+    <!-- Create New Exam -->
+    <string name="create_new_exam">Create New Exam</string>
+    <string name="next">Next</string>
+    <string name="classroom_title">Classroom:</string>
+    <string name="classroom_title_hint">Select Classroom</string>
+    <string name="syllabus_title">Syllabus:</string>
+    <string name="syllabus_title_hint">Enter modules here</string>
+    <string name="date_title">Date:</string>
+    <string name="date_title_hint">DD / MM / YY</string>
+    <string name="time_title">Time:</string>
+    <string name="time_title_hint">HR : MN : SC</string>
+    <string name="duration_title">Duration:</string>
+    <string name="duration_title_hint">HR | MN</string>
+    <string name="timeframe_title">Timeframe:</string>
+    <string name="total_marks_title">Total Marks:</string>
+    <string name="category_title">Category:</string>
+    <string name="category_title_hint">Internal, mock, etc</string>
+
 </resources>

@@ -5,7 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/action_dashboard">
 
-
     <fragment
         android:id="@+id/action_dashboard"
         android:name="dev.logickoder.edvora.ui.main.dashboard.DashboardFragment"
@@ -27,6 +26,4 @@
         android:name="dev.logickoder.edvora.ui.main.exams.CreateExamFragment"
         android:label="CreateExamFragment"
         tools:layout="@layout/fragment_create_exam"/>
-
-
 </navigation>
