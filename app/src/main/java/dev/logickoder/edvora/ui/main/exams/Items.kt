@@ -3,6 +3,7 @@ package dev.logickoder.edvora.ui.main.exams
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import dev.logickoder.edvora.R
 import dev.logickoder.edvora.databinding.ItemQuestionBinding
@@ -14,14 +15,19 @@ import java.time.Instant
 
 private val checkedState = listOf(android.R.attr.state_checked).toIntArray()
 private val uncheckedState = emptyList<Int>().toIntArray()
+private const val A = 'A'
 
 interface OptionsContainer {
     fun addOption()
     fun updateChecked(option: OptionItem)
 }
 
+interface QuestionsContainer {
+    fun removeQuestion(question: QuestionItem)
+}
+
 class QuestionItem(
-    val id: Long = Instant.now().epochSecond
+    val container: QuestionsContainer, val id: Long = Instant.now().epochSecond
 ) : BaseItem<Long, ItemQuestionBinding>(id, R.layout.item_question, id), OptionsContainer {
     private val options by lazy { BaseListAdapter() }
     private var binding: ItemQuestionBinding? = null
@@ -31,7 +37,14 @@ class QuestionItem(
     )
 
     override fun bind(binding: ItemQuestionBinding): Unit = with(binding) {
+        this@QuestionItem.binding = binding
         iqListOptions.adapter = options.also { addOption() }
+        iqTextRemove.setOnClickListener { container.removeQuestion(this@QuestionItem) }
+        iqTextSave.setOnClickListener {
+            changeEditability(
+                iqTextSave.text.toString().equals(root.context.getString(R.string.edit), true)
+            )
+        }
     }
 
     override fun addOption() {
@@ -46,19 +59,17 @@ class QuestionItem(
         (options.currentList - option).forEach { (it as OptionItem).updateCheck(false) }
     }
 
-    fun changeEditable(boolean: Boolean) = binding?.apply {
+    private fun changeEditability(boolean: Boolean) = binding?.apply {
         iqTextRemove.apply {
             text = context.getText(if (boolean) R.string.discard else R.string.remove)
             setTextColor(resources.getColor(if (boolean) R.color.primary_color else R.color.create_new_exam_remove))
         }
         iqTextSave.apply {
             text = context.getText(if (boolean) R.string.save else R.string.edit)
-            setTextColor(resources.getColor(if (boolean) R.color.dashboard_card else R.color.create_new_exam_edit))
+            setTextColor(resources.getColor(if (boolean) R.color.dashboard_card_button else R.color.create_new_exam_edit))
         }
-    }
-
-    companion object {
-        const val A = 'A'
+        iqTextinputQuestion.isEnabled = boolean
+        options.currentList.forEach { (it as OptionItem).changeEditability(boolean) }
     }
 }
 
@@ -103,5 +114,11 @@ class OptionItem(
             it.iqoTextOptionLetter.background.state = uncheckedState
             it.iqoTextOptionLetter.setTextColor(it.root.resources.getColor(R.color.create_new_exam_option_unchecked))
         }
+    }
+
+    fun changeEditability(boolean: Boolean) = binding?.also {
+        it.iqoSelected.isVisible = boolean
+        it.iqoImageRemoveOption.isVisible = boolean
+        it.iqoTextinputOption.isEnabled = boolean
     }
 }

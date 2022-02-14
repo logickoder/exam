@@ -8,7 +8,7 @@ import dev.logickoder.edvora.ui.base.BaseFragment
 import dev.logickoder.edvora.ui.base.BaseListAdapter
 import dev.logickoder.edvora.utils.view.viewBinding
 
-class CreateExamFragment : BaseFragment(R.layout.fragment_create_exam) {
+class CreateExamFragment : BaseFragment(R.layout.fragment_create_exam), QuestionsContainer {
 
     override val binding by viewBinding(FragmentCreateExamBinding::bind)
     private val questions by lazy { BaseListAdapter() }
@@ -19,11 +19,17 @@ class CreateExamFragment : BaseFragment(R.layout.fragment_create_exam) {
         setupUI()
     }
 
+    override fun removeQuestion(question: QuestionItem) {
+        questions.submitList(questions.currentList - question)
+    }
+
     private fun setupUI() = with(binding) {
         fceQuestions.pceqQuestionsList.apply {
-            adapter = questions.also { addQuestion(QuestionItem()) }
+            adapter = questions.also { addQuestion(QuestionItem(this@CreateExamFragment)) }
         }
-        fceQuestions.pceqButtonAddQuestion.setOnClickListener { addQuestion(QuestionItem()) }
+        fceQuestions.pceqButtonAddQuestion.setOnClickListener {
+            addQuestion(QuestionItem(this@CreateExamFragment))
+        }
     }
 
     private fun addQuestion(question: QuestionItem) {

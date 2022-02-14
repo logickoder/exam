@@ -12,13 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="?attr/colorPrimaryVariant"
-        android:checked="false"
         android:gravity="center" />
 
     <LinearLayout
         android:id="@+id/iqo_option"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@drawable/bg_option"
         android:orientation="horizontal">
@@ -42,7 +41,7 @@
             android:id="@+id/iqo_textinput_option"
             style="@style/TextStyle.new_exam_section_option_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
@@ -58,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:srcCompat="@drawable/ic_cancel"
         app:tint="@color/primary_color_light"
         tools:visibility="visible" />
