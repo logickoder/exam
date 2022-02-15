@@ -27,9 +27,12 @@ class DashboardViewModel : BaseViewModel() {
 
     init {
         _user.value = UserRepository.currentUser
-        _examination.value = ExaminationRepository.getAll()
         _attendance.value = ClassroomRepository.getAll().map {
             it to AttendanceRepository.getAttendanceFor(UserRepository.currentUser, it)
         }
+    }
+
+    fun getExamination() {
+        _examination.value = ExaminationRepository.getAll()
     }
 }

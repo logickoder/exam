@@ -64,7 +64,7 @@
         tools:text="20 marks" />
 
     <TextView
-        android:id="@+id/ie_text_2"
+        android:id="@+id/ie_text_category"
         style="@style/TextStyle.exam_card_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

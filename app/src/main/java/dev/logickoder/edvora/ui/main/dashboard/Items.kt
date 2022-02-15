@@ -31,8 +31,8 @@ class ExaminationItem(
         ieTextMark.text = root.context.getString(R.string.marks, item.mark)
         ieTextDuration.text = item.duration.first.toAmPm()
             .plus(" - ").plus(item.duration.second.toAmPm())
-        ieText1.text = item.text1
-        ieText2.text = item.text2
+        ieText1.text = item.syllabus
+        ieTextCategory.text = item.category
         ieButtonTakeExam.isVisible = (LocalTime.now() in item.duration.first..item.duration.second)
     }
 }
@@ -61,7 +61,8 @@ class AttendanceItem(
             iaTableStatistics.addView(tableRow.root)
         }
         val attendance = item.let { it.attended.toFloat() / (it.attended + it.missed) }.let {
-            iaProgressAttendance.progress = (it * 100).toInt()
+            iaProgress.ppbProgress.setProgressCompat((it * 100).toInt(), true)
+            iaProgress.ppbTextProgress.text = "${(it * 100).toInt()}%"
             if (it < PASS_ATTENDANCE) iaButtonAttendance.apply {
                 isVisible = true
                 text = context.getString(R.string.low_attendance, classroom.code)

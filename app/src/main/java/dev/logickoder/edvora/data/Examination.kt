@@ -13,6 +13,6 @@ data class Examination(
     val classroom: Classroom,
     val duration: Pair<StartTime, EndTime>,
     val mark: Mark,
-    val text1: String,
-    val text2: String
+    val syllabus: String,
+    val category: String
 )

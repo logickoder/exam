@@ -9,8 +9,8 @@
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/drawable/by_option_letter.xml" value="0.182" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/drawable/ic_arrow_down.xml" value="0.182" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_create_exam.xml" value="0.18127404873877725" />
-        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_dashboard.xml" value="0.22083333333333333" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_create_exam.xml" value="0.33" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_dashboard.xml" value="0.18127404873877725" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/fragment_exams.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/item_attendance.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/item_create_exam_info.xml" value="0.33" />
@@ -22,6 +22,7 @@
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_create_exam_questions.xml" value="0.18127404873877725" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_dashboard_card.xml" value="0.33" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_dashboard_header.xml" value="0.5" />
+        <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_progress_bar.xml" value="0.67" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_table_row.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_toolbar.xml" value="0.22083333333333333" />
         <entry key="..\:/Android/Projects/edvora/app/src/main/res/layout/partial_user_welcome.xml" value="0.33" />

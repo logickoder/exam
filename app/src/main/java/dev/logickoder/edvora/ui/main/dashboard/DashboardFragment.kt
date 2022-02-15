@@ -45,6 +45,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
     }
 
     private fun setupObservers() = with(viewModel) {
+        getExamination()
         user.observe(viewLifecycleOwner) {
             binding.fdTextGreeting.text =
                 binding.root.context.getString(R.string.hello_name, it.name)

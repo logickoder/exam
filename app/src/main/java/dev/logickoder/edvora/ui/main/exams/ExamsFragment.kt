@@ -55,6 +55,7 @@ class ExamsFragment : BaseFragment(R.layout.partial_dashboard_card) {
     }
 
     private fun setupObservers() = with(viewModel) {
+        getExamination()
         examinations.observe(viewLifecycleOwner) { examinations ->
             binding.pdcList.adapter = BaseListAdapter().apply {
                 submitList(examinations.map { ExaminationItem(it) })

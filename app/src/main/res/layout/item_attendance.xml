@@ -29,9 +29,9 @@
         app:srcCompat="@drawable/ic_arrow_down"
         app:tint="@color/primary_color_light" />
 
-    <ProgressBar
-        android:id="@+id/ia_progress_attendance"
-        style="?android:attr/progressBarStyle"
+    <include
+        android:id="@+id/ia_progress"
+        layout="@layout/partial_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -67,7 +67,7 @@
         android:textColor="#004A76"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/ia_table_statistics"
-        app:layout_constraintStart_toStartOf="@+id/ia_progress_attendance"
+        app:layout_constraintStart_toStartOf="@+id/ia_progress"
         app:layout_constraintTop_toBottomOf="@+id/ia_table_statistics"
         tools:text="Your attendance seems to be low in DSA"
         tools:visibility="visible" />
@@ -76,7 +76,7 @@
         android:id="@+id/ia_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="ia_progress_attendance,ia_table_statistics" />
+        app:constraint_referenced_ids="ia_progress,ia_table_statistics" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/ia_group_dropdown"
