@@ -37,7 +37,7 @@
             android:textColor="@color/create_new_exam_option_unchecked"
             tools:text="A" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/iqo_textinput_option"
             style="@style/TextStyle.new_exam_section_option_text"
             android:layout_width="wrap_content"

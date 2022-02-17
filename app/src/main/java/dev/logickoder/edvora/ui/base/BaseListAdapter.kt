@@ -10,17 +10,14 @@ import androidx.recyclerview.widget.ListAdapter
  * writing a new class
  */
 open class BaseListAdapter : ListAdapter<BaseItem<*, *>, BaseViewHolder<*>>(
-
     AsyncDifferConfig.Builder(object : DiffUtil.ItemCallback<BaseItem<*, *>>() {
         override fun areItemsTheSame(oldItem: BaseItem<*, *>, newItem: BaseItem<*, *>): Boolean {
             return oldItem.uniqueId == newItem.uniqueId
         }
-
         override fun areContentsTheSame(oldItem: BaseItem<*, *>, newItem: BaseItem<*, *>): Boolean {
             return oldItem == newItem
         }
     }).build()
-
 ) {
     private var lastItemForViewTypeLookup: BaseItem<*, *>? = null
 
@@ -55,10 +52,8 @@ open class BaseListAdapter : ListAdapter<BaseItem<*, *>, BaseViewHolder<*>>(
             return lastItemForViewTypeLookup as BaseItem<*, *>
         }
         // To be extra safe in case RecyclerView implementation details change...
-        val item = currentList.firstOrNull { it.itemId == viewType }
-        if (item == null)
-            throw IllegalStateException("Could not find model for view type: $viewType")
-        else lastItemForViewTypeLookup = item
-        return item
+        return currentList.firstOrNull { it.itemId == viewType }?.also {
+            lastItemForViewTypeLookup = it
+        } ?: throw IllegalStateException("Could not find model for view type: $viewType")
     }
 }

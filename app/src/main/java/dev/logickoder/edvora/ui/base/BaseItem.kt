@@ -40,10 +40,7 @@ abstract class BaseItem<T, VB : ViewBinding>(
      * */
     abstract fun bind(binding: VB)
 
-    override fun equals(other: Any?): Boolean {
-        return if (other !is BaseItem<*, *>) false else other.item == item
-    }
+    override fun equals(other: Any?) = (other is BaseItem<*, *>) && other.item == item
 
     override fun hashCode() = item.hashCode()
-
 }
