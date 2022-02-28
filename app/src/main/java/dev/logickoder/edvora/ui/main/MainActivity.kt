@@ -1,23 +1,43 @@
 package dev.logickoder.edvora.ui.main
 
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import dev.logickoder.edvora.R
-import dev.logickoder.edvora.databinding.ActivityMainBinding
-import dev.logickoder.edvora.ui.base.BaseActivity
-import dev.logickoder.edvora.utils.view.viewBinding
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import dev.logickoder.edvora.ui.theme.EdvoraTheme
 
-class MainActivity : BaseActivity() {
-
-    override val binding by viewBinding(ActivityMainBinding::inflate)
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContent {
+            EdvoraTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    Greeting("Android")
+                }
+            }
+        }
+    }
+}
 
-        binding.appBottomNavigation.setupWithNavController(
-            findNavController(R.id.nav_host_fragment)
-        )
+@Composable
+fun Greeting(name: String) {
+    Text(text = "Hello $name!")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    EdvoraTheme {
+        Greeting("Android")
     }
 }

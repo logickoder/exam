@@ -51,5 +51,6 @@
     <string name="section_description">Section Description (Optional)</string>
     <string name="add_question">Add question</string>
     <string name="add_another_section">Add another section</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>
