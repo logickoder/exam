@@ -1,15 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="dev.logickoder.edvora.ui.main.MainActivity">
+    tools:context="dev.logickoder.exams.ui.main.MainActivity">
     <item
         android:id="@+id/action_page_1"
         android:title="@string/page_1"
-        android:icon="@drawable/ic_android"/>
+        android:icon="@drawable/ic_android" />
     <item
         android:id="@+id/action_page_2"
         android:title="@string/page_2"
-        android:icon="@drawable/ic_android"/>
+        android:icon="@drawable/ic_android" />
     <item
         android:id="@+id/action_dashboard"
         android:title="@string/dashboard"
