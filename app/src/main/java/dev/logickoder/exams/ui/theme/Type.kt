@@ -67,7 +67,9 @@ val Typography = Typography(
     ),
     caption = TextStyle(
         fontFamily = Font,
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
-    )
+        fontSize = 12.sp,
+    ),
+    overline = TextStyle(
+        fontFamily = Font,
+    ),
 )

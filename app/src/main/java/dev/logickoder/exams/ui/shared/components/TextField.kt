@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -14,6 +16,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.input.OffsetMapping
+import androidx.compose.ui.text.input.TransformedText
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.window.PopupProperties
 import dev.logickoder.exams.R
 import java.time.LocalDate
@@ -23,6 +29,26 @@ import androidx.compose.material.MaterialTheme as Theme
 
 typealias ValueChange = (String) -> Unit
 typealias IsOpen = (Boolean) -> Unit
+
+/**
+ * The Visual Filter can be used for number Input Field.
+ *
+ * Note that this visual filter only works for ASCII characters.
+ */
+class DigitVisualTransformation : VisualTransformation {
+    override fun filter(text: AnnotatedString): TransformedText {
+        return TransformedText(
+            AnnotatedString(text.text.filter { it.isDigit() }),
+            OffsetMapping.Identity
+        )
+    }
+
+    override fun equals(other: Any?) = (other is DigitVisualTransformation)
+    override fun hashCode(): Int {
+        return javaClass.hashCode()
+    }
+}
+
 
 data class PopupTextFieldScope(
     val open: IsOpen,
@@ -37,6 +63,9 @@ fun TextInput(
     value: String = "",
     placeholder: String? = null,
     icon: Painter? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
     readOnly: Boolean = false,
 ) {
     OutlinedTextField(
@@ -52,6 +81,9 @@ fun TextInput(
         trailingIcon = icon?.let { { Icon(painter = icon, contentDescription = null) } },
         shape = Theme.shapes.large,
         readOnly = readOnly,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
         colors = TextFieldDefaults.outlinedTextFieldColors(
             textColor = Theme.colors.primaryVariant,
             trailingIconColor = Theme.colors.onPrimary,
@@ -70,6 +102,10 @@ fun StandaloneTextInput(
     value: String = "",
     placeholder: String? = null,
     icon: Painter? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    readOnly: Boolean = false,
 ) {
     var text by remember { mutableStateOf(value) }
     TextInput(
@@ -77,7 +113,14 @@ fun StandaloneTextInput(
             text = it
             onValueChange(it)
         },
-        modifier, text, placeholder, icon
+        modifier,
+        text,
+        placeholder,
+        icon,
+        keyboardOptions,
+        keyboardActions,
+        visualTransformation,
+        readOnly
     )
 }
 
@@ -116,11 +159,11 @@ fun PopupTextInput(
 }
 
 @Composable
-fun DropdownTextField(
+fun <T> DropdownTextField(
     modifier: Modifier = Modifier,
     placeholder: String? = null,
-    onSelected: ValueChange? = null,
-    suggestions: List<String> = emptyList(),
+    onSelected: ((T) -> Unit)? = null,
+    suggestions: List<T> = emptyList(),
 ) = PopupTextInput(
     modifier = modifier,
     placeholder = placeholder,
@@ -136,11 +179,11 @@ fun DropdownTextField(
             DropdownMenuItem(
                 onClick = {
                     open(false)
-                    updateValue(suggestion)
+                    updateValue(suggestion.toString())
                     onSelected?.invoke(suggestion)
                 }
             ) {
-                Text(text = suggestion)
+                Text(text = suggestion.toString())
             }
         }
     }
@@ -172,5 +215,17 @@ fun TimePickerTextField(
             updateValue(time.format(DateTimeFormatter.ofPattern("h : mm a")))
             onSelected?.invoke(time)
         }
+}
+
+@Composable
+fun DurationPickerTextField(
+    modifier: Modifier = Modifier,
+    placeholder: String? = null,
+    onSelected: ((Duration) -> Unit)? = null,
+) = PopupTextInput(modifier = modifier, placeholder = placeholder) {
+    if (isOpen) DurationPicker(open) { duration ->
+        updateValue("${duration.hours} | ${duration.minutes}")
+        onSelected?.invoke(duration)
+    }
 }
 
