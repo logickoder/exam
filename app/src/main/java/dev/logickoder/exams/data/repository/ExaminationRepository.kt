@@ -6,9 +6,6 @@ import java.time.LocalTime
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-/**
- *
- */
 object ExaminationRepository : DataRepository<Examination>() {
     private val examinations = buildList {
         val random = Random(Instant.now().epochSecond)

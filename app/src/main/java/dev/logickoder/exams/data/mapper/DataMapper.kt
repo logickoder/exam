@@ -1,11 +1,14 @@
 package dev.logickoder.exams.data.mapper
 
-import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import dev.logickoder.exams.R
 import dev.logickoder.exams.data.Attendance
 
-fun Attendance.toTable(context: Context) = buildMap {
-    put(context.getString(R.string.total_classes), totalClasses)
-    put(context.getString(R.string.classes_attended), attended)
-    put(context.getString(R.string.classes_missed), missed)
-    put(context.getString(R.string.classes_left), totalClasses - (attended + missed))
+@Composable
+fun Attendance.toTable() = buildMap {
+    put(stringResource(R.string.total_classes), totalClasses)
+    put(stringResource(R.string.classes_attended), attended)
+    put(stringResource(R.string.classes_missed), missed)
+    put(stringResource(R.string.classes_left), totalClasses - (attended + missed))
 }

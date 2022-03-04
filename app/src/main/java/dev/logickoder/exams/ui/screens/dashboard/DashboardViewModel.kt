@@ -1,7 +1,8 @@
-package dev.logickoder.exams.ui.main.dashboard
+package dev.logickoder.exams.ui.screens.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import dev.logickoder.exams.data.Attendance
 import dev.logickoder.exams.data.Classroom
 import dev.logickoder.exams.data.Examination
@@ -10,12 +11,11 @@ import dev.logickoder.exams.data.repository.AttendanceRepository
 import dev.logickoder.exams.data.repository.ClassroomRepository
 import dev.logickoder.exams.data.repository.ExaminationRepository
 import dev.logickoder.exams.data.repository.UserRepository
-import dev.logickoder.exams.ui.base.BaseViewModel
 
 /**
  *
  */
-class DashboardViewModel : BaseViewModel() {
+class DashboardViewModel : ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> get() = _user
 
@@ -30,9 +30,6 @@ class DashboardViewModel : BaseViewModel() {
         _attendance.value = ClassroomRepository.getAll().map {
             it to AttendanceRepository.getAttendanceFor(UserRepository.currentUser, it)
         }
-    }
-
-    fun getExamination() {
         _examination.value = ExaminationRepository.getAll()
     }
 }
