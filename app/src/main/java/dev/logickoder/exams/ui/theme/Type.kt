@@ -58,6 +58,12 @@ val Typography = Typography(
         fontSize = 16.sp,
         lineHeight = 19.sp,
     ),
+    h5 = TextStyle(
+        fontFamily = Font,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 17.sp,
+    ),
     button = TextStyle(
         fontFamily = Font,
         fontWeight = FontWeight.Medium,
