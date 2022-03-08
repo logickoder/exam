@@ -22,7 +22,6 @@ import dev.logickoder.exams.utils.toAmPm
 import java.time.LocalTime
 import androidx.compose.material.MaterialTheme as Theme
 
-
 @Composable
 fun ExaminationItem(
     exam: Examination,
@@ -41,11 +40,10 @@ fun ExaminationItem(
             .padding(24.dp)
     ) {
         val (_title, _button, _duration, _syllabus, _marks, _category) = createRefs()
-        val guideline = createGuidelineFromStart(0.8f)
         Text(
             modifier = Modifier.constrainAs(_title) {
                 top.linkTo(parent.top)
-                linkTo(parent.start, guideline, endMargin = 4.dp, bias = 0f)
+                linkTo(parent.start, _button.start, endMargin = 4.dp, bias = 0f)
                 width = Dimension.fillToConstraints
             },
             text = classroom.name,
@@ -57,14 +55,14 @@ fun ExaminationItem(
                 .alpha(if (LocalTime.now() in duration.first..duration.second) 1f else 0f)
                 .constrainAs(_button) {
                     top.linkTo(_title.top)
-                    linkTo(guideline, parent.end, bias = 1f)
+                    end.linkTo(parent.end)
                 },
             onClick = { },
             colors = ButtonDefaults.buttonColors(backgroundColor = Theme.colors.secondary),
             shape = Theme.shapes.medium,
             contentPadding = PaddingValues(horizontal = 6.dp, vertical = 6.dp)
         ) {
-            Text(stringResource(id = R.string.take), style = Theme.typography.button)
+            Text(stringResource(id = R.string.take), style = Theme.typography.button.copy(color = Color.White))
         }
         Text(
             "${duration.first.toAmPm()} - ${duration.second.toAmPm()}",

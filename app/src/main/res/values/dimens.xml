@@ -1,7 +1,0 @@
-<resources>
-    <dimen name="fab_margin">16dp</dimen>
-
-    <!-- Dashboard -->
-    <dimen name="dashboard_card_radius">10dp</dimen>
-    <dimen name="dashboard_card_padding">24dp</dimen>
-</resources>

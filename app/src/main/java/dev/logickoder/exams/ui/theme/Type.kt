@@ -69,7 +69,6 @@ val Typography = Typography(
         fontWeight = FontWeight.Medium,
         fontSize = 15.sp,
         lineHeight = 18.sp,
-        color = Color.White,
     ),
     caption = TextStyle(
         fontFamily = Font,

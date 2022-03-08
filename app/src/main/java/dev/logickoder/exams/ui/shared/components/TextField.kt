@@ -17,11 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.window.PopupProperties
 import dev.logickoder.exams.R
+import dev.logickoder.exams.ui.theme.defaultTextFieldColor
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -49,7 +51,6 @@ class DigitVisualTransformation : VisualTransformation {
     }
 }
 
-
 data class PopupTextFieldScope(
     val open: IsOpen,
     val updateValue: ValueChange,
@@ -63,35 +64,26 @@ fun TextInput(
     value: String = "",
     placeholder: String? = null,
     icon: Painter? = null,
+    textStyle: TextStyle = Theme.typography.body2,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     readOnly: Boolean = false,
+    colors: TextFieldColors = defaultTextFieldColor()
 ) {
     OutlinedTextField(
         value = value,
-        onValueChange = {
-            if (it !== value) {
-                onValueChange(it)
-            }
-        },
+        onValueChange = { if (it !== value) onValueChange(it) },
         modifier = modifier,
-        textStyle = Theme.typography.body2,
-        placeholder = placeholder?.let { { Text(it, style = Theme.typography.body2) } },
+        textStyle = textStyle,
+        placeholder = placeholder?.let { { Text(it, style = textStyle) } },
         trailingIcon = icon?.let { { Icon(painter = icon, contentDescription = null) } },
         shape = Theme.shapes.large,
         readOnly = readOnly,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
-        colors = TextFieldDefaults.outlinedTextFieldColors(
-            textColor = Theme.colors.primaryVariant,
-            trailingIconColor = Theme.colors.onPrimary,
-            placeholderColor = Theme.colors.onPrimary,
-            backgroundColor = Theme.colors.background,
-            focusedBorderColor = Color.Transparent,
-            unfocusedBorderColor = Color.Transparent,
-        )
+        colors = colors,
     )
 }
 
@@ -102,10 +94,12 @@ fun StandaloneTextInput(
     value: String = "",
     placeholder: String? = null,
     icon: Painter? = null,
+    textStyle: TextStyle = Theme.typography.body2,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     readOnly: Boolean = false,
+    colors: TextFieldColors = defaultTextFieldColor()
 ) {
     var text by remember { mutableStateOf(value) }
     TextInput(
@@ -117,10 +111,12 @@ fun StandaloneTextInput(
         text,
         placeholder,
         icon,
+        textStyle,
         keyboardOptions,
         keyboardActions,
         visualTransformation,
-        readOnly
+        readOnly,
+        colors,
     )
 }
 
